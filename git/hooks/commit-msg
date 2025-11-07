@@ -1,0 +1,29 @@
+#!/bin/bash
+commit_message=$(cat "$1")
+
+# Regex del formato esperado
+pattern="^(feat|refactor|fix|style|test|docs|major|ci)\(task-[0-9]+\): .+"
+
+# Colores ANSI sin negrita
+YELLOW="\033[33m"
+GREEN="\033[32m"
+RED="\033[31m"
+CYAN="\033[36m"
+RESET="\033[0m"
+
+if [[ $commit_message =~ $pattern ]]; then
+  echo -e "${YELLOW}Your commit message is:${RESET}"
+  echo -e "  $commit_message\n"
+  read -p "$(echo -e ${CYAN}Do you want to continue?\ [Y/n] ${RESET})" answer </dev/tty
+
+  if [[ "$answer" =~ ^[Nn]$ ]]; then
+    echo -e "${RED}Aborting commit.${RESET}"
+    exit 1
+  else
+    echo -e "${GREEN}Proceeding with commit.${RESET}"
+  fi
+else
+  echo -e "${RED}Invalid commit message format.${RESET}"
+  echo "Please use: type(task-NUMBER): MESSAGE"
+  exit 1
+fi
