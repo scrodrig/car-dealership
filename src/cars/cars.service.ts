@@ -8,4 +8,12 @@ export class CarsService {
     { id: 3, brand: 'Renault', model: 'Captur' },
     { id: 4, brand: 'Jeep', model: 'Cheerokee' },
   ];
+
+  findAll() {
+    return this.cars;
+  }
+
+  findById(id: number) {
+    return this.cars.find((car) => car.id === id);
+  }
 }
