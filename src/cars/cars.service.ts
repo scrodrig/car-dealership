@@ -13,7 +13,8 @@ export class CarsService {
     return this.cars;
   }
 
-  findById(id: number) {
-    return this.cars.find((car) => car.id === id);
+  findOneById(id: number) {
+    const car = this.cars.find((car) => car.id === id);
+    return car;
   }
 }
