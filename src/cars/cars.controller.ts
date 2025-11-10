@@ -9,6 +9,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { CarsService } from './cars.service';
+import { CreateCarDTO } from './dto/create-car.dto';
 
 @Controller('cars')
 export class CarsController {
@@ -27,8 +28,8 @@ export class CarsController {
 
   // ? Body can be used without a DTO, but it's not recommended
   @Post()
-  createCar(@Body() carData: { brand: string; model: string }) {
-    return this.carsService.create(carData);
+  createCar(@Body() createCarDTO: CreateCarDTO) {
+    return this.carsService.create(createCarDTO);
   }
 
   @Patch(':id')
