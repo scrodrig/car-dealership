@@ -1,0 +1,18 @@
+meta {
+  name: post
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/cars
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "brand": "New brand",
+    "model": "New model"
+  }
+}

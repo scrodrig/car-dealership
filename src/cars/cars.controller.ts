@@ -19,11 +19,13 @@ export class CarsController {
     return this.carsService.findAll();
   }
 
+  // ? Pipes should go with the param in this case
   @Get(':id')
   getCarById(@Param('id', ParseIntPipe) id: number) {
     return this.carsService.findOneById(id);
   }
 
+  // ? Body can be used without a DTO, but it's not recommended
   @Post()
   createCar(@Body() carData: { brand: string; model: string }) {
     return this.carsService.create(carData);

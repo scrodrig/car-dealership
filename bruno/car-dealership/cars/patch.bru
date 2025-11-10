@@ -1,0 +1,18 @@
+meta {
+  name: patch
+  type: http
+  seq: 1
+}
+
+patch {
+  url: http://localhost:3000/cars/5
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "brand": "Patched brand",
+    "model": "Patched model"
+  }
+}
