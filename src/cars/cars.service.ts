@@ -22,10 +22,10 @@ export class CarsService {
     return car;
   }
 
-  create(car: CreateCarDTO) {
+  create(createCarDto: CreateCarDTO) {
     const newCar = {
       id: uuidv4(),
-      ...car,
+      ...createCarDto,
     };
     this.cars.push(newCar);
     return newCar;
