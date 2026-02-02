@@ -57,4 +57,8 @@ export class BrandsService {
   remove(id: string) {
     return this.brands.filter((brand) => brand.id !== id);
   }
+
+  populateBrands(brands: Brand[]) {
+    this.brands = brands;
+  }
 }
